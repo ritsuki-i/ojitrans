@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>おじさん構文翻訳AI</title>
+</head>
+<body>
+    <form action="/ans" method="post">
+        <h1>おじさん構文翻訳AI</h1>
+        <h2>翻訳形態を選択</h2>
+        <label class="style"><input type="radio" name="style" value="おじさん構文→日本語">おじさん構文→日本語</label>
+        <label class="style"><input type="radio" name="style" value="日本語→おじさん構文">日本語→おじさん構文</label><br>
+        <h2 style="color: red;">{{ message }}</h2><br>
+        <p>送る相手の名前：<br>
+        <input type="text" name="name" value="{{ name }}"></p>
+        <textarea name="sentence" id="sentence" cols="100" rows="10" placeholder="ここに入力">{{ sentence }}</textarea><br>
+        <!-- admax -->
+        <script src="https://adm.shinobi.jp/s/8b67f7405c0f89b2f9e3485ad6eb8e1b"></script>
+        <script src="https://adm.shinobi.jp/s/864beade4187b9c318f7e4639440e5c6"></script><br>
+        <!-- admax -->
+        <button type="submit" onclick=location.href="{{ url_for('ans') }}" style="color: rgb(0, 0, 0);">翻訳開始</button>
+        <h2>{{ mode }}</h2>
+        <h2>↓↓↓↓↓↓</h2>
+        <h2 name="trans" id="trans">{{ trans }}</h2>
+    </form>
+    <form action="/copy" method="post">
+        <button type="submit" onclick=location.href="{{ url_for('copy') }}" style="color: rgb(0, 0, 0);">クリップボードへコピー</button>
+    </form>
+    <a href=""></a>
+    <p></p>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{ twitter }}#おじさん構文　#おじさん構文翻訳AI" data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html>
