@@ -24,14 +24,31 @@
         <button type="submit" onclick=location.href="{{ url_for('ans') }}" style="color: rgb(0, 0, 0);">翻訳開始</button>
         <h2>{{ mode }}</h2>
         <h2>↓↓↓↓↓↓</h2>
-        <h2 name="trans" id="trans">{{ trans }}</h2>
+        <span id="copy-target2"><h2 name="trans" id="trans">{{ trans }}</h2></span>
     </form>
-    <form action="/copy" method="post">
-        <button type="submit" onclick=location.href="{{ url_for('copy') }}" style="color: rgb(0, 0, 0);">クリップボードへコピー</button>
-    </form>
+    <button onclick="copyToClipboard()">クリップボードにコピー</button>
     <a href=""></a>
     <p></p>
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{ twitter }}#おじさん構文　#おじさん構文翻訳AI" data-show-count="false">Tweet</a>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://oji.pythonanywhere.com/" data-text="{{ twitter }}#おじさん構文　#おじさん構文翻訳AI"　data-show-count="false">結果をツイート</a>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+        function copyToClipboard() 
+        { 
+            var copyText = document.querySelector('#copy-target2'); 
+        
+            var range = document.createRange();
+            range.selectNodeContents(copyText);
+        
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+        
+            if(document.execCommand('copy')) {
+                alert('クリップボードにコピーしました.');
+            } else {
+                alert('Ctrl+Cを押してください.');
+            }
+        }
+    </script>
 </body>
 </html>

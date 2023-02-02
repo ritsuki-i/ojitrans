@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import render_template, request
 from my_app import app
 import pyperclip
 from Data import Data
@@ -7,10 +7,10 @@ import nagisa
 import unicodedata
 import demoji
 import jaconv
-from googletrans import Translator
 import markovify
+from googletrans import Translator
 import pickle
-import MeCab
+
 Trans = Data()
 
 
